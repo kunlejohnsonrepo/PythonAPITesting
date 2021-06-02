@@ -49,3 +49,18 @@ def test_search_by_invalid_country_name():
     assert (response.json()['message']) == 'Not Found', 'message does not match'
     print(f'response body assertions passed')
     print(f'Search Countries by invalid name test was executed successfully')
+
+# get countries by passing currency code
+def test_get_country_name_by_currency_code():
+    response = requests.get(base_url+'/currency/eur')
+    print(f'endpoint:'+response.url)
+    http_code = response.status_code
+    print(http_code)
+    assert http_code == 200, 'HTTP status code is not 200'
+    print(f'status code assertion is PASSED')
+    print(response.json())
+    assert (response.json()[3]['name']) == 'Belgium', 'Country is not Belgium'
+    assert (response.json()[7]['name']) == 'France', 'Country is not France'
+    assert (response.json()[7]['currencies'][0]['code']) == 'EUR', 'Currency is not Euro'
+    print(f'response body assertions passed')
+    print(f'Search Countries by currency code test was executed successfully')
