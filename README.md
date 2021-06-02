@@ -24,6 +24,11 @@ pip install jsonpath
 ```python
 pip install pytest
 ```
+optional: This is to generate an HTML report
+
+```python
+pip install pytest-html
+```
 
 # Code Structure
 
@@ -39,13 +44,13 @@ The test_countries.py file consists of 5 basic tests(functions) with some assert
 1. *test_search_by_country_name* : Function to test for search by country name.
 1. *test_search_by_invalid_country_name* : As the function name suggest, test to search for country by passing invalid name criteria
 1. *test_get_country_name_by_currency_code* : Test to retrieve country by passing valid currency code
-1. *test_search_by_list_of_codes_all_invalid_codes* : Function to test for search for country by list of (different) codes by passing invalid codes 
+1. *test_search_by_list_of_codes_all_invalid_codes* : Function to test for search for country by list of (different) codes by passing invalid codes
 
 # Run Test
 The test can be run using any IDE or from the command line. On the IDE, you can run the test from the project root folder *(PythonAPITest/)* using  the command
 
 ```python
-py.test 
+py.test
 ```
 OR using
 
@@ -54,4 +59,10 @@ py.test countries/test_countries.py
 
 ```
 results of the test is displayed on the console showing the number of test passed (and if any failed)
-        
+
+# HTML Report
+To generate the report in html format run the below command
+
+```python
+py.test --html=report.html
+```
