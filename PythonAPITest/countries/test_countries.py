@@ -12,6 +12,9 @@ def test_get_all_countries():
     print(http_code)
     assert http_code == 200, 'HTTP status code is not 200'
     print(f'status code assertion is PASSED')
+    header = response.headers
+    assert (header['Content-Type']) == 'application/json;charset=utf-8', 'Content-Type does not match'
+    print(f'Content-Type assertion passed')
     print(response.json()[13])
     assert (response.json()[13]['name']) == 'Australia', 'Country is not Australia'
     assert (response.json()[13]['region']) == 'Oceania', 'Region is not Oceania'
@@ -29,6 +32,9 @@ def test_search_by_country_name():
     print(http_code)
     assert http_code == 200, 'HTTP status code is not 200'
     print(f'status code assertion is PASSED')
+    header = response.headers
+    assert (header['Content-Type']) == 'application/json;charset=utf-8', 'Content-Type does not match'
+    print(f'Content-Type assertion passed')
     print(response.json())
     assert (response.json()[0]['name']) == 'French Southern Territories', 'Country is not French Southern Territories'
     assert (response.json()[1]['name']) == 'South Africa', 'Country is not South Africa'
@@ -58,6 +64,9 @@ def test_get_country_name_by_currency_code():
     print(http_code)
     assert http_code == 200, 'HTTP status code is not 200'
     print(f'status code assertion is PASSED')
+    header = response.headers
+    assert (header['Content-Type']) == 'application/json;charset=utf-8', 'Content-Type does not match'
+    print(f'Content-Type assertion passed')
     print(response.json())
     assert (response.json()[3]['name']) == 'Belgium', 'Country is not Belgium'
     assert (response.json()[7]['name']) == 'France', 'Country is not France'
@@ -73,6 +82,9 @@ def test_search_by_list_of_codes_all_invalid_codes():
     print(http_code)
     assert http_code == 200, 'HTTP status code is not 200'
     print(f'status code assertion is PASSED')
+    header = response.headers
+    assert (header['Content-Type']) == 'application/json;charset=utf-8', 'Content-Type does not match'
+    print(f'Content-Type assertion passed')
     print(response.json())
     assert response.json() == [None], 'response body does not match'
     print(f'response body assertions passed')
