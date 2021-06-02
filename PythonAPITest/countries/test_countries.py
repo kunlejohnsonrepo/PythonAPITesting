@@ -64,3 +64,16 @@ def test_get_country_name_by_currency_code():
     assert (response.json()[7]['currencies'][0]['code']) == 'EUR', 'Currency is not Euro'
     print(f'response body assertions passed')
     print(f'Search Countries by currency code test was executed successfully')
+
+#negative test scenario: Search by passing invalid alpha codes
+def test_search_by_list_of_codes_all_invalid_codes():
+    response = requests.get(base_url+'/alpha?codes=djp;pkk;xxq')
+    print(f'endpoint:'+response.url)
+    http_code = response.status_code
+    print(http_code)
+    assert http_code == 200, 'HTTP status code is not 200'
+    print(f'status code assertion is PASSED')
+    print(response.json())
+    assert response.json() == [None], 'response body does not match'
+    print(f'response body assertions passed')
+    print(f'Search by List of codes passing all invalid codes test was executed successfully')
