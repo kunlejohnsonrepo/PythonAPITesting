@@ -9,3 +9,6 @@ assets/
 .cache
 *.html
 .vscode
+
+# remove pdf info file
+*.pdf
